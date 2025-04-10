@@ -1,6 +1,6 @@
 from src import loaders, text_processing, embeddings, vector_store, prompts, llm, context_builder
 
-def analyze_pdf(pdf_path, query, model="llama3", embedding_model="nomic-embed-text"):
+def analyze_pdf(pdf_path, query, model="llama3", embedding_model="llama3"):
     """
     Analyze a PDF document and answer a query about it.
     
@@ -17,7 +17,7 @@ def analyze_pdf(pdf_path, query, model="llama3", embedding_model="nomic-embed-te
     docs = loaders.load_pdf(pdf_path)
     
     # Split the document with an appropriate strategy
-    splits = text_processing.split_documents(docs, splitting_strategy="semantic")
+    splits = text_processing.split_documents(docs, splitting_strategy="section", chunk_size=1000, chunk_overlap=20)
     
     # Optionally normalize chunk lengths for better embeddings
     normalized_splits = text_processing.normalize_chunk_lengths(splits)
@@ -35,13 +35,13 @@ def analyze_pdf(pdf_path, query, model="llama3", embedding_model="nomic-embed-te
     query_embedding = embed_model.embed_query(query)
     
     # Search for relevant documents
-    results = vector_store.similarity_search(vs, query_embedding)
+    results = vector_store.similarity_search(vs, query_embedding, k=10)
     
     # Build context using the dedicated module
     context = context_builder.build_context(results)
     
     # Generate prompt
-    prompt = prompts.generate_prompt(context, query)
+    prompt = prompts.generate_advanced_prompt(context, query)
     
     # Generate response
     response = llm.generate_response(model, prompt)
@@ -51,6 +51,6 @@ def analyze_pdf(pdf_path, query, model="llama3", embedding_model="nomic-embed-te
 if __name__ == "__main__":
     # Example usage
     file_path = "pdf_files/paper.pdf"
-    query = "what is the topic of the document?"
+    query = "explain the paper in detail with proper math ifor latex format"
     response = analyze_pdf(file_path, query)
     print(response) 
