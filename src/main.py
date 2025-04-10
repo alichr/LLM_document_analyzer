@@ -1,6 +1,6 @@
 from src import loaders, text_processing, embeddings, vector_store, prompts, llm, context_builder
 
-def analyze_pdf(pdf_path, query, model="llama3", embedding_model="llama3"):
+def analyze_pdf(pdf_path, query, model="gemma3:1b", embedding_model="llama3"):
     """
     Analyze a PDF document and answer a query about it.
     

@@ -97,7 +97,7 @@ def get_document_metadata(filename):
         "total_chunks": "N/A",  # You could calculate this
     }
 
-def answer_question(query, model="llama3", active_file=None):
+def answer_question(query, model="gemma3:1b", active_file=None):
     """
     Answer a question based on the uploaded PDFs with enhanced context awareness.
     """
@@ -392,5 +392,5 @@ def import_datetime():
     return datetime.datetime  # Return datetime class, not the module
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, host='127.0.0.1', port=8080)
 
