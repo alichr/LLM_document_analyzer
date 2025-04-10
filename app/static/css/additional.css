@@ -1,0 +1,171 @@
+/* Notification styles */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    min-width: 300px;
+    padding: 15px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1050;
+    transform: translateX(120%);
+    transition: transform 0.3s ease;
+}
+
+.notification.show {
+    transform: translateX(0);
+}
+
+.notification-content {
+    display: flex;
+    align-items: center;
+}
+
+.notification-content i {
+    margin-right: 10px;
+    font-size: 1.2em;
+}
+
+.notification-success {
+    border-left: 4px solid #28a745;
+}
+
+.notification-success i {
+    color: #28a745;
+}
+
+.notification-info {
+    border-left: 4px solid var(--primary-color);
+}
+
+.notification-info i {
+    color: var(--primary-color);
+}
+
+.notification-error {
+    border-left: 4px solid #dc3545;
+}
+
+.notification-error i {
+    color: #dc3545;
+}
+
+.notification-close {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #6c757d;
+}
+
+/* System message styling */
+.system-message {
+    align-self: center;
+    background-color: #f8f9fa;
+    border: 1px solid #e9ecef;
+    color: #6c757d;
+    max-width: 90%;
+    text-align: center;
+    border-radius: 20px;
+    font-size: 0.9em;
+    margin: 10px 0;
+    padding: 8px 16px;
+}
+
+body.dark-theme .system-message {
+    background-color: #343a40;
+    border-color: #495057;
+    color: #adb5bd;
+}
+
+/* Highlight page in PDF */
+.highlight-page {
+    box-shadow: 0 0 0 2px #ffc107 !important;
+    animation: pulse-border 2s ease;
+}
+
+@keyframes pulse-border {
+    0% { box-shadow: 0 0 0 2px rgba(255, 193, 7, 0.8); }
+    50% { box-shadow: 0 0 0 5px rgba(255, 193, 7, 0.4); }
+    100% { box-shadow: 0 0 0 2px rgba(255, 193, 7, 0.8); }
+}
+
+/* Toggle view button for mobile */
+.toggle-view-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    z-index: 1000;
+    border: none;
+}
+
+@media (min-width: 992px) {
+    .toggle-view-btn {
+        display: none;
+    }
+}
+
+/* Add these styles to your CSS file */
+
+.error-message {
+    border-left: 4px solid #dc3545;
+}
+
+.error-message .message-content {
+    color: #dc3545;
+}
+
+body.dark-theme .error-message .message-content {
+    color: #f77;
+}
+
+/* PDF viewer controls */
+.document-controls {
+    padding: 8px 12px;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.zoom-controls, .page-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.zoom-level, .page-info {
+    font-size: 0.9rem;
+    color: #495057;
+    min-width: 60px;
+    text-align: center;
+}
+
+.document-controls .btn {
+    padding: 4px 8px;
+    line-height: 1;
+}
+
+/* Dark theme adjustments */
+body.dark-theme .document-controls {
+    background-color: #2d2d2d;
+    border-color: #444;
+}
+
+body.dark-theme .zoom-level,
+body.dark-theme .page-info {
+    color: #adb5bd;
+} 

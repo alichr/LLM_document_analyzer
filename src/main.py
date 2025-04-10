@@ -39,6 +39,9 @@ def analyze_pdf(pdf_path, query, model="llama3", embedding_model="llama3"):
     
     # Build context using the dedicated module
     context = context_builder.build_context(results)
+
+    print(context)
+    input("Press Enter to continue...")
     
     # Generate prompt
     prompt = prompts.generate_advanced_prompt(context, query)
@@ -51,6 +54,6 @@ def analyze_pdf(pdf_path, query, model="llama3", embedding_model="llama3"):
 if __name__ == "__main__":
     # Example usage
     file_path = "pdf_files/paper.pdf"
-    query = "explain the paper in detail with proper math ifor latex format"
+    query = "who are the authors of the paper?"
     response = analyze_pdf(file_path, query)
     print(response) 
