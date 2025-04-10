@@ -1,0 +1,9 @@
+langchain-community 
+pypdf
+langchain-ollama
+langchain-chroma
+numpy
+torch
+transformers
+torchvision
+flask
