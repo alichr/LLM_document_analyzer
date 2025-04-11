@@ -14,7 +14,7 @@ This project is a PDF analysis tool that allows users to upload PDF documents an
 
 ## Project Structure 
 
-
+```
 project/
 ├── app/
 │ ├── web_page.py # Flask web application
@@ -37,6 +37,7 @@ project/
 ├── README.md # This documentation file
 └── run.py # Command-line script for PDF analysis
 
+```
 ## How It Works
 
 1. **Document Loading**: PDFs are loaded and parsed using LangChain's PyPDFLoader.
