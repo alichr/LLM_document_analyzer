@@ -7,3 +7,5 @@ torch
 transformers
 torchvision
 flask
+pytest
+flake8
