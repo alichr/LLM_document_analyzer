@@ -9,3 +9,4 @@ torchvision
 flask
 pytest
 flake8
+pytest-cov
